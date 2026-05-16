@@ -1,0 +1,10 @@
+body {
+  box-sizing: border-box;
+  margin: 20px;
+  padding: 0;
+  background-color: rgb(212, 196, 196);
+}
+
+main {
+  height: 70vh;
+}

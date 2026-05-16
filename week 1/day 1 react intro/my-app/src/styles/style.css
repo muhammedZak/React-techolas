@@ -1,0 +1,10 @@
+h2 {
+  padding: 30px;
+  background-color: aqua;
+}
+
+.para {
+  border: 10px dotted burlywood;
+  font-size: large;
+  padding: 20px;
+}
