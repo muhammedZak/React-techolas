@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { data, Link, useNavigate } from 'react-router-dom';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [inputData, setInputData] = useState('');
 
   const navigate = useNavigate();
 
@@ -28,32 +29,55 @@ const Products = () => {
     fetchProducts();
   }, []);
 
+  const searchData = products.filter((p) =>
+    p.title.toLowerCase().includes(inputData),
+  );
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error} This is Error message from server</p>;
 
   return (
     <div>
-      <h1>Products List</h1>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          padding: '10px',
+        }}>
+        <h1>Products List</h1>
+        <input
+          style={{ height: '50px' }}
+          type='search'
+          name=''
+          id=''
+          value={inputData}
+          placeholder='Search'
+          onChange={(e) => setInputData(e.target.value)}
+        />
+      </div>
+
       <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-        {products.map((p) => (
-          <div
-            key={p.id}
-            style={{
-              width: '200px',
-              border: '1px solid black',
-              padding: '10px',
-              marginTop: '10px',
-            }}>
-            <h3>{p.title}</h3>
-            <p>{p.description}</p>
-            <p>{p.price}</p>
-            {/* <button onClick={() => navigate(`/products/${p.id}`)}> */}
-            <button onClick={() => navigate(`${p.id}`)}>
-              Show more ---
-            </button>
-            {/* <Link to={`/products/${p.id}`}>Show more--</Link> */}
-          </div>
-        ))}
+        {searchData.length === 0 ? (
+          <p>No product found</p>
+        ) : (
+          searchData.map((p) => (
+            <div
+              key={p.id}
+              style={{
+                width: '200px',
+                border: '1px solid black',
+                padding: '10px',
+                marginTop: '10px',
+              }}>
+              <h3>{p.title}</h3>
+              <p>{p.description}</p>
+              <p>{p.price}</p>
+              {/* <button onClick={() => navigate(`/products/${p.id}`)}> */}
+              <button onClick={() => navigate(`${p.id}`)}>Show more ---</button>
+              {/* <Link to={`/products/${p.id}`}>Show more--</Link> */}
+            </div>
+          ))
+        )}
       </div>
     </div>
   );

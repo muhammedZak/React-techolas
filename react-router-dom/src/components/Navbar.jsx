@@ -70,6 +70,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
+              end
               to='/products'
               style={({ isActive }) =>
                 isActive
@@ -88,6 +89,17 @@ const Navbar = () => {
                   : listItems
               }>
               Contact
+            </NavLink>
+          </li>
+          <li>
+            <NavLink 
+              to='/dashboard'
+              style={({ isActive }) =>
+                isActive
+                  ? { color: 'yellow', textDecoration: 'underline' }
+                  : listItems
+              }>
+              Dashboard
             </NavLink>
           </li>
         </ul>
