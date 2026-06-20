@@ -1,0 +1,32 @@
+{
+  "students": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "age": 20,
+      "course": "Python Development"
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "age": 22,
+      "course": "Python Development"
+    },
+    {
+      "id": "3",
+      "name": "Alice Johnson",
+      "email": "alice.johnson@example.com",
+      "age": 21,
+      "course": "Python Development"
+    },
+    {
+      "name": "zakariya m",
+      "email": "zakariya@gmail.com",
+      "course": "MERN 1",
+      "id": "5vRE3WvGt_Q"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
